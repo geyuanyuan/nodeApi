@@ -23,6 +23,11 @@ app.get('/test', (req, res) => {
   console.log(req)
     res.send({ msg: '成功！！！' })
 })
+app.get('download',(req,res)=>{
+  res.send(
+  //  'http://127.0.0.1:5500/public/images/16521431101409821.jpg'
+  )
+})
 const upload = multer({ dest: 'uploads/'});
 app.post('/upload', upload.single('upload'), (req, res) => {
   let imgFile = req.file;//获取图片上传的资源
@@ -39,6 +44,7 @@ app.post('/upload', upload.single('upload'), (req, res) => {
   // {"fileName":"photo.png","uploaded":1,"url":"https:\/\/ckeditor.com\/apps\/ckfinder\/userfiles\/files\/photo.png"}
   // http://127.0.0.1:3007/img/1647057754040334.jpg
 })
+
 
 app.listen('5500', () => {
     console.log('start')
